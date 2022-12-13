@@ -1,5 +1,8 @@
+const tripRouter = require('../controllers/trips')
+const Trip = require('../models/trip')
+
 const validateData = (data) => {
-  let rowDara = {
+  let rowData = {
     departure: data[0],
     return: data[1],
     departureStationId: data[2],
@@ -9,15 +12,20 @@ const validateData = (data) => {
     distance: data[6],  
     duration: data[7],
   }
-  if (rowDara.distance < 10) {
+  if (rowData.distance < 10) {
     console.log('invalid data --> short trip')
-    return false
+    return { 'validation': false, 'reason': 'short trip', rowData }
   }
-  if (rowDara.duration < 10) {
-    console.log('invalid data --> quick trop')
-    return false
+  if (rowData.duration < 10) {
+    console.log('invalid data --> quick trip')
+    return { 'validation': false, 'reason': 'quick trip', rowData }
   }
-  return rowDara
+  const recordExist = Trip.findOne({rowData})
+  if (recordExist) {
+    console.log('invalid data --> Dublicate record');
+    return { 'validation': false, 'reason': 'DublicateRecord', rowData }
+  }
+  return { 'validation': true, rowData }
 }
 
 module.exports = {
