@@ -1,7 +1,7 @@
 const tripRouter = require('../controllers/trips')
 const Trip = require('../models/trip')
 
-const validateData = (data) => {
+const validateData = async(data) => {
   let rowData = {
     departure: data[0],
     return: data[1],
@@ -20,14 +20,31 @@ const validateData = (data) => {
     console.log('invalid data --> quick trip')
     return { 'validation': false, 'reason': 'quick trip', rowData }
   }
-  const recordExist = Trip.findOne({rowData})
-  if (recordExist) {
-    console.log('invalid data --> Dublicate record');
-    return { 'validation': false, 'reason': 'DublicateRecord', rowData }
+  if (true) {
+    const result = await dubCheck(rowData)
+    if (result === true) {
+      return { 'validation': false, 'reason': 'Dublicate Record'}
+    }
+    return { 'validation': true, rowData }
   }
-  return { 'validation': true, rowData }
+
 }
 
+const dubCheck = async(data) => {
+  const recordExist = await Trip.findOne({
+                        departure: data.departure,
+                        return: data.return,
+                        departureStationId: data.departureStationId,
+                        returnStationId: data.returnStationId,
+                        distance: data.distance,  
+                        duration: data.duration
+                      })
+
+  if (recordExist) {
+    return true
+  }
+  return false
+}
 module.exports = {
   validateData
 }
