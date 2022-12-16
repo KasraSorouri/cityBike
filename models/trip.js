@@ -40,6 +40,8 @@ tripSchema.set('toJSON', {
     returnedObject.id = returnedObject._id.toString()
     delete returnedObject._id
     delete returnedObject.__v
+    returnedObject.distance = returnedObject.distance / 1000
+    returnedObject.duration = returnedObject.duration / 60
   }
 })
   

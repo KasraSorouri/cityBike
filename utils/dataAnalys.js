@@ -1,5 +1,4 @@
-const tripRouter = require('../controllers/trips')
-const Trip = require('../models/trip')
+const Trip = require('../models/trip.js')
 
 const validateData = async(data) => {
   let rowData = {
@@ -45,6 +44,98 @@ const dubCheck = async(data) => {
   }
   return false
 }
+
+const statistic = async(stationId) => {
+  try {
+    const totalTripFrom = await Trip.find({ departureStationId: stationId }).count()
+    const totalTripTo = await Trip.find({ returnStationId: stationId }).count()
+    const avrageTripFrom = await Trip.aggregate([
+      { $match: { departureStationId: stationId } },
+      {
+        $group: {
+          _id: null,
+          distance: {$avg: "$distance"} 
+        }
+      }
+    ])
+    const avrageTripTo = await Trip.aggregate([
+      { $match: { returnStationId: stationId } },
+      {
+        $group: {
+          _id: null,
+          distance: { $avg: "$distance" }
+        }
+      }
+    ])
+
+    const roundTrip = await Trip.aggregate([
+      { $match: { departureStationId: stationId , returnStationId: stationId} },
+      {
+        $group: {
+          _id: "$returnStationName",
+          count: { $sum: 1 },
+          duration: { $avg: "$duration" },
+          minDuration: { $min: "$duration" },
+          maxDuration: { $max: "$duration" },
+          distance: { $avg: "$distance" },
+          minDistance: { $min: "$distance" },
+          maxDistance: { $max: "$distance" },
+        }
+      },
+      { $sort: { count: -1 } }
+    ]).limit(5)
+
+    const departureFrom = await Trip.aggregate([
+      { $match: { departureStationId: stationId } },
+      {
+        $group: {
+          _id: "$returnStationName",
+          count: { $sum: 1 },
+          duration: { $avg: "$duration" },
+          minDuration: { $min: "$duration" },
+          maxDuration: { $max: "$duration" },
+          distance: { $avg: "$distance" },
+          minDistance: { $min: "$distance" },
+          maxDistance: { $max: "$distance" },
+        }
+      },
+      { $sort: { count: -1 } }
+    ]).limit(5)
+
+    const destinationTo = await Trip.aggregate([
+      { $match: { retrunStationId: stationId } },
+      {
+        $group: {
+          _id: "$departureStationName",
+          count: { $sum: 1 },
+          duration: { $avg: "$duration" },
+          minDuration: { $min: "$duration" },
+          maxDuration: { $max: "$duration" },
+          distance: { $avg: "$distance" },
+          minDistance: { $min: "$distance" },
+          maxDistance: { $max: "$distance" },
+        }
+      },
+      { $sort: { count: -1 } }
+    ]).limit(5)
+  
+    const body = {
+      'total trip from station': totalTripFrom,
+      'total trip to station': totalTripTo,
+      'avrage trip from station': avrageTripFrom,
+      'avrage trip to station': avrageTripTo,
+      'return Trip <> ': roundTrip,
+      'departureFrom -> ': departureFrom,
+      'destinationTo <- ': destinationTo
+    }
+
+    return body
+  } catch (e) {
+    console.log(e.message);
+  }
+}
+
 module.exports = {
-  validateData
+  validateData,
+  statistic
 }

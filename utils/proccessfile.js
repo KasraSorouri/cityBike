@@ -1,15 +1,15 @@
 const {parse} = require('csv-parse')
 const fs = require('fs')
 const dataAnalys = require('../utils/dataAnalys')
-const Trip = require('../models/trip')
+const Trip = require('../models/trip.js')
 
  
-const processFile = async (file) => { 
+const processTrip = async(file) => { 
   var inValidData = []
    return new Promise(async(resolve, reject) => {
     const path = file;
     const stream = fs.createReadStream(path);
-    const parser = parse({ delimiter: ',', from_line: 2, to_line: 20 });
+    const parser = parse({ delimiter: ',', from_line: 2, to_line: 1000 });
 
     stream.on('ready', async() => {
       stream.pipe(parser);
@@ -29,7 +29,7 @@ const processFile = async (file) => {
       }
     });
 
-    parser.on('error', function(err){
+    parser.on('error', async(err) => {
       console.error(err.message);
       reject();
     });
@@ -44,4 +44,6 @@ const processFile = async (file) => {
   });
  }
 
- module.exports = processFile
+module.exports = {
+   processTrip
+ }
