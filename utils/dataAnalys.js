@@ -1,6 +1,8 @@
 const Trip = require('../models/trip.js')
+const Station = require('../models/station')
 
-const validateData = async(data) => {
+const validateData = async(data, dublicateCheck) => {
+
   let rowData = {
     departure: data[0],
     return: data[1],
@@ -8,7 +10,7 @@ const validateData = async(data) => {
     departureStationName: data[3],
     returnStationId: data[4],
     returnStationName: data[5],
-    distance: data[6],  
+    distance: data[6],
     duration: data[7],
   }
   if (rowData.distance < 10) {
@@ -19,40 +21,37 @@ const validateData = async(data) => {
     console.log('invalid data --> quick trip')
     return { 'validation': false, 'reason': 'quick trip', rowData }
   }
-  if (true) {
-    const result = await dubCheck(rowData)
-    if (result === true) {
-      return { 'validation': false, 'reason': 'Dublicate Record'}
-    }
+
+  if (dublicateCheck === 'false') {
     return { 'validation': true, rowData }
   }
-
-}
-
-const dubCheck = async(data) => {
-  const recordExist = await Trip.findOne({
-                        departure: data.departure,
-                        return: data.return,
-                        departureStationId: data.departureStationId,
-                        returnStationId: data.returnStationId,
-                        distance: data.distance,  
-                        duration: data.duration
-                      })
-
-  if (recordExist) {
-    return true
+  try {
+    isDuble = await Trip.exists({
+      departure: rowData.departure,
+      return: rowData.return,
+      departureStationId: rowData.departureStationId,
+      returnStationId: rowData.returnStationId,
+      distance: rowData.distance,
+      duration: rowData.duration
+    })
+  
+    if (isDuble) {
+      return { 'validation': false, 'reason': 'Dublicate Record' }
+    } else {
+      return { 'validation': true, rowData }
+    }
+  } catch (e) {
+    console.log(e.message);
   }
-  return false
 }
 
-const statistic = async(stationId) => {
+const statistic = async (stationId) => {
   try {
     const totalTripFrom = await Trip.find({ departureStationId: stationId }).count()
     const totalTripTo = await Trip.find({ returnStationId: stationId }).count()
     const avrageTripFrom = await Trip.aggregate([
       { $match: { departureStationId: stationId } },
-      {
-        $group: {
+      { $group: {
           _id: null,
           distance: {$avg: "$distance"} 
         }
@@ -60,8 +59,7 @@ const statistic = async(stationId) => {
     ])
     const avrageTripTo = await Trip.aggregate([
       { $match: { returnStationId: stationId } },
-      {
-        $group: {
+      { $group: {
           _id: null,
           distance: { $avg: "$distance" }
         }
@@ -69,9 +67,8 @@ const statistic = async(stationId) => {
     ])
 
     const roundTrip = await Trip.aggregate([
-      { $match: { departureStationId: stationId , returnStationId: stationId} },
-      {
-        $group: {
+      { $match: { departureStationId: stationId , returnStationId: stationId }},
+      { $group: {
           _id: "$returnStationName",
           count: { $sum: 1 },
           duration: { $avg: "$duration" },
@@ -86,9 +83,8 @@ const statistic = async(stationId) => {
     ]).limit(5)
 
     const departureFrom = await Trip.aggregate([
-      { $match: { departureStationId: stationId } },
-      {
-        $group: {
+      { $match: { departureStationId: stationId }},
+      { $group: {
           _id: "$returnStationName",
           count: { $sum: 1 },
           duration: { $avg: "$duration" },
@@ -103,9 +99,8 @@ const statistic = async(stationId) => {
     ]).limit(5)
 
     const destinationTo = await Trip.aggregate([
-      { $match: { retrunStationId: stationId } },
-      {
-        $group: {
+      { $match: { returnStationId: stationId }},
+      { $group: {
           _id: "$departureStationName",
           count: { $sum: 1 },
           duration: { $avg: "$duration" },
@@ -135,7 +130,36 @@ const statistic = async(stationId) => {
   }
 }
 
+const stationDubCheck = async (data) => {
+  const rowData = {
+    fid: data[0],
+    stationId: data[1],
+    nameFinnish: data[2],
+    nameSwedish: data[3],
+    nameEnglish: data[4],
+    addressFinnish: data[5],
+    addrressEnglish: data[6],
+    cityFinnish: data[7],
+    citySwedish: data[8],
+    opperator: data[9],
+    capacity: data[10],
+    location: {
+      longtitude: data[11],
+      latitude: data[12]
+    }
+  }
+  const recordExist = await Station.exists({
+                        stationId: rowData.stationId
+                      })
+
+  if (recordExist) {
+    return { 'validation': false, 'reason': 'Dublicate Record'}
+  }
+  return { 'validation': true, rowData }
+}
+
 module.exports = {
   validateData,
-  statistic
+  statistic,
+  stationDubCheck
 }

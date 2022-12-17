@@ -6,6 +6,9 @@ const cors = require('cors')
 const logger = require('./utils/logger')
 const middleware = require('./utils/middleware')
 const tripRouter = require('./controllers/trips')
+const fileRouter = require('./controllers/files')
+const testRouter = require('./controllers/testRouter')
+
 const mongoose = require('mongoose')
 
 logger.info('connecting to ',config.MONGODB_URI)
@@ -22,6 +25,8 @@ app.use(cors())
 app.use(express.json())
 
 app.use('/api/trips', tripRouter)
+app.use('/api/files', fileRouter)
+app.use('/test', testRouter)
 
 
 app.use(middleware.requestLogger)
