@@ -12,7 +12,9 @@ stationRouter.get('/:page/:rowsPerPage',  async (request, response) => {
   console.log('Sort params ->', sortParameter);
 
   try {
-    const body = await Station.find({...searchParameter}).sort({ ...sortParameter }).skip(page*rows).limit(rows)
+    const totalStations = await Station.countDocuments()
+    const stations = await Station.find({...searchParameter}).sort({ ...sortParameter }).skip(page*rows).limit(rows)
+    const body = { stations, totalStations }
     response.json(body)
   } catch (e) {
     console.log(e.message);

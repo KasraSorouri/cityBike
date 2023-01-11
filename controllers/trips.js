@@ -12,7 +12,9 @@ tripRouter.get('/:page/:rowsPerPage',  async (request, response) => {
   console.log('Sort params ->', sortParameter)
 
   try {
-    const body = await Trip.find({...searchParameter}).sort({ ...sortParameter }).skip(page*rows).limit(rows)
+    const totalTrips = await Trip.countDocuments()
+    const trips = await Trip.find({...searchParameter}).sort({ ...sortParameter }).skip(page*rows).limit(rows)
+    const body = { trips, totalTrips }
     response.json(body)
   } catch (e) {
     console.log(e.message);
