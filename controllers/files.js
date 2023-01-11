@@ -15,8 +15,8 @@ const upload = multer({ storage: storage })
 
 fileRouter.post('/trip', upload.single('csvFile'), async (request, response, next) => {
   const dublicateCheck = request.body.dublicateCheck
-  const unSuccess = await processFile.processTrip(`${request.file.path}`,dublicateCheck)
-  response.status(200).json(unSuccess)
+  const onSuccess = await processFile.processTrip(`${request.file.path}`,dublicateCheck)
+  response.status(200).json(onSuccess)
 })
 
 fileRouter.post('/station', upload.single('csvFile'), async (request, response, next) => {

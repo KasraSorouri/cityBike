@@ -6,6 +6,7 @@ const cors = require('cors')
 const logger = require('./utils/logger')
 const middleware = require('./utils/middleware')
 const tripRouter = require('./controllers/trips')
+const stationRouter = require('./controllers/stations')
 const fileRouter = require('./controllers/files')
 const testRouter = require('./controllers/testRouter')
 
@@ -25,6 +26,7 @@ app.use(cors())
 app.use(express.json())
 
 app.use('/api/trips', tripRouter)
+app.use('/api/stations', stationRouter)
 app.use('/api/files', fileRouter)
 app.use('/test', testRouter)
 

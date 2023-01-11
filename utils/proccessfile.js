@@ -10,7 +10,7 @@ const processTrip = async(file,dublicateCheck) => {
   return new Promise((resolve, reject) => {
     var inValidData = []
     const stream = fs.createReadStream(file)
-    const parser = parse({ delimiter: ',', from_line: 57000, to_line: 60000 })
+    const parser = parse({ delimiter: ',', from_line: 2, to_line: 1000 })
     
     stream.on('ready', async () => {
       stream.pipe(parser)
@@ -85,8 +85,9 @@ const processStation = async (file) => {
       return proccessResult
     });
   });
- }
+}
+
 module.exports = {
   processTrip,
   processStation
- }
+}
