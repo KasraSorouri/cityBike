@@ -23,9 +23,9 @@ stationRouter.get('/:page/:rowsPerPage',  async (request, response) => {
 
 stationRouter.get('/:sid', async (request, response) => {
 
-  const stationId = request.params.sid
-//  console.log('Search params ->', stationId);
-  const body  =  await dataAnalys.statistic(stationId)
+  const sid = request.params.sid
+  console.log('Search SID ->', sid);
+  const body  =  await dataAnalys.statistic(sid)
   response.status(200).json(body)
 })
 

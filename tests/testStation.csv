@@ -1,0 +1,24 @@
+FID	ID	Nimi	Namn	Name	Osoite	Adress	Kaupunki	Stad	Operaattor	Kapasiteet	x	y
+198	747	Leppävaaran uimahalli	Alberga simhall	Leppävaaran uimahalli	Veräjäpellonkatu 12	Grindåkersgatan 12	Espoo	Esbo	CityBike Finland	18	24.804735	60.226379
+99	749	Vallikatu	Vallgatan	Vallikatu	Vallikatu 19	Vallgatan 19	Espoo	Esbo	CityBike Finland	24	24.813871	60.228463
+100	751	Vallipolku	Vallgången	Vallipolku	Vallikatu 12	Vallgatan 12	Espoo	Esbo	CityBike Finland	20	24.819614	60.227827
+101	753	Linnuntie	Fågelvägen	Linnuntie	Linnuntie 2	Fågelsvägen 2	Espoo	Esbo	CityBike Finland	24	24.813954	60.234401
+102	755	Kutsuntatie	Uppbådsvägen	Kutsuntatie	Lintulaaksontie 2	Fågeldalsvägen 2	Espoo	Esbo	CityBike Finland	16	24.824561	60.230453
+103	757	Painiitty	Pajängen	Painiitty	Lotankatu 1	Lottagatan 1	Espoo	Esbo	CityBike Finland	12	24.831397	60.235089
+104	761	Mäkkylän asema	Mäkkylä station	Mäkkylän asema	Perkkaantie 20	Bergansvägen 20	Espoo	Esbo	CityBike Finland	32	24.83939	60.220467
+105	763	Kalkkipellonmäki	Kalkåkersbacken	Kalkkipellonmäki	Turuntie 22	Åbovägen 22	Espoo	Esbo	CityBike Finland	24	24.833536	60.220551
+106	767	Ruutikatu	Krutgatan	Ruutikatu	Ruutikatu 10	Krugranden 10	Espoo	Esbo	CityBike Finland	10	24.820635	60.223377
+107	769	Tiurintie	Tiurisvägen	Tiurintie	Kurkijoentie 1	Kronoborgsvägen 1	Espoo	Esbo	CityBike Finland	12	24.814562	60.204951
+108	900	Orionintie	Orionvägen	Orionintie	Orionintie 3-5	Orionvägen 3-5	Espoo	Esbo	CityBike Finland	20	24.771826	60.180118
+109	901	O'Bike Station	O'Bike Station	O'Bike Station	Rauhalanpuisto 11	Rauhalaparken 11	Espoo	Esbo	CityBike Finland	20	24.742219	60.163412
+111	1	Kaivopuisto	Brunnsparken	Kaivopuisto	Meritori 1	Havstorget 1	 	 	 	30	24.9502114714031	60.155369615074
+112	2	Laivasillankatu	Skeppsbrogatan	Laivasillankatu	Laivasillankatu 14	Skeppsbrogatan 14	 	 	 	12	24.9565097715858	60.1609890692806
+113	3	Kapteeninpuistikko	Kaptensskvären	Kapteeninpuistikko	Tehtaankatu 13	Fabriksgatan 13	 	 	 	16	24.9450181631667	60.1581769029949
+114	4	Viiskulma	Femkanten	Viiskulma	Fredrikinkatu 19	Fredriksgatan  19	 	 	 	14	24.9417758006418	60.1609858921764
+115	5	Sepänkatu	Smedsgatan	Sepänkatu	Tehtaankatu 25	Fabriksgatan 25	 	 	 	32	24.9362853002102	60.157948291819
+116	6	Hietalahdentori	Sandvikens torg	Hietalahdentori	Hietalahdenkatu 2	Sandviksgatan 2	 	 	 	24	24.9296476311878	60.1622283898112
+117	7	Designmuseo	Designmuseet	Design Museum	Korkeavuorenkatu 23	Högbergsgatan 23	 	 	 	14	24.9459599998806	60.16310319166
+113	3	Kapteeninpuistikko	Kaptensskvären	Kapteeninpuistikko	Tehtaankatu 13	Fabriksgatan 13	 	 	 	16	24.9450181631667	60.1581769029949
+118	8	Vanha kirkkopuisto	Gamla kyrkoparken	Vanha kirkkopuisto	Annankatu 16	Annegatan 16	 	 	 	24	24.9391145483706	60.1653538465664
+119	9	Erottajan aukio	Skillnadsplatsen	Erottajan aukio	Eteläesplanadi 22	Södra esplanaden 22	 	 	 	44	24.9441887601673	60.1668948711694
+120	10	Kasarmitori	Kaserntorget	Kasarmitori	Fabianinkatu 13	Fabiansgatan 13	 	 	 	28	24.9494728793816	60.165017172741

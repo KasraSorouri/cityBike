@@ -2,7 +2,6 @@ const Trip = require('../models/trip.js')
 const Station = require('../models/station')
 
 const validateData = async(data, dublicateCheck) => {
-
   let rowData = {
     departure: data[0],
     return: data[1],
@@ -14,15 +13,13 @@ const validateData = async(data, dublicateCheck) => {
     duration: data[7],
   }
   if (rowData.distance < 10) {
-    console.log('invalid data --> short trip')
     return { 'validation': false, 'reason': 'short trip', rowData }
   }
   if (rowData.duration < 10) {
-    console.log('invalid data --> quick trip')
     return { 'validation': false, 'reason': 'quick trip', rowData }
   }
 
-  if (dublicateCheck === 'false') {
+  if (dublicateCheck === 'false' ) {
     return { 'validation': true, rowData }
   }
   try {
@@ -45,7 +42,10 @@ const validateData = async(data, dublicateCheck) => {
   }
 }
 
-const statistic = async (stationId) => {
+const statistic = async (sid) => {
+  const station = await Station.findById(sid)
+  const stationId = station.stationId
+  console.log('bakend staion Id ->', stationId)
   try {
     const totalTripFrom = await Trip.find({ departureStationId: stationId }).count()
     const totalTripTo = await Trip.find({ returnStationId: stationId }).count()
@@ -130,7 +130,7 @@ const statistic = async (stationId) => {
   }
 }
 
-const stationDubCheck = async (data) => {
+const stationDubCheck = async (data, dublicateCheck) => {
   const rowData = {
     fid: data[0],
     stationId: data[1],
@@ -148,14 +148,20 @@ const stationDubCheck = async (data) => {
       latitude: data[12]
     }
   }
+  if (dublicateCheck === 'false' ) {
+    return { 'validation': true, rowData }
+  }
+  try {
   const recordExist = await Station.exists({
                         stationId: rowData.stationId
                       })
-
   if (recordExist) {
     return { 'validation': false, 'reason': 'Dublicate Record'}
   }
   return { 'validation': true, rowData }
+} catch (e) {
+  console.log(e.message);
+}
 }
 
 module.exports = {

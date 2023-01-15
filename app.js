@@ -10,7 +10,7 @@ const stationRouter = require('./controllers/stations')
 const fileRouter = require('./controllers/files')
 const testRouter = require('./controllers/testRouter')
 
-const mongoose = require('mongoose')
+const mongoose = require('mongoose').set('strictQuery',false)
 
 logger.info('connecting to ',config.MONGODB_URI)
 
@@ -24,6 +24,7 @@ mongoose.connect(config.MONGODB_URI)
 
 app.use(cors())
 app.use(express.json())
+app.use(middleware.requestLogger)
 
 app.use('/api/trips', tripRouter)
 app.use('/api/stations', stationRouter)
@@ -31,7 +32,6 @@ app.use('/api/files', fileRouter)
 app.use('/test', testRouter)
 
 
-app.use(middleware.requestLogger)
 app.use(middleware.unknownEndpoint)
 app.use(middleware.errorHandler)
 
