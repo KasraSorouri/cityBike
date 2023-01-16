@@ -74,13 +74,13 @@ const statistic = async (sid) => {
     ]).limit(5)
   
     const body = {
-      'total trip from station': totalTripFrom,
-      'total trip to station': totalTripTo,
-      'avrage trip from station': avrageTripFrom,
-      'avrage trip to station': avrageTripTo,
-      'return Trip <> ': roundTrip,
-      'departureFrom -> ': departureFrom,
-      'destinationTo <- ': destinationTo
+      'totalTripFromStation': totalTripFrom,
+      'totalTripToStation': totalTripTo,
+      'avrageTripFromStation': avrageTripFrom,
+      'avrageTripToStation': avrageTripTo,
+      'returnTrip': roundTrip,
+      'departureFrom': departureFrom,
+      'destinationTo': destinationTo
     }
 
     return body
