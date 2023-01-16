@@ -16,7 +16,15 @@ const processTrip = async (file,dublicateCheck) => {
       inValidRecords.push(analysedData.reason)
     }
   }
-  return inValidRecords
+  const response = {
+    'totalRecords': records.length,
+    'inValidRecords' : inValidRecords.length,
+    'addRecordeToDatabse': records.length - inValidRecords.length,
+    'shortTrip': inValidRecords.filter(record => record == 'short trip').length,
+    'quickTrip': inValidRecords.filter(record => record == 'quick trip').length,
+    'dublicatedRecord': inValidRecords.filter(record => record == 'Dublicate Record').length
+  }
+  return response
 }
 
 const processStation = async (file,dublicateCheck) => { 
@@ -32,7 +40,14 @@ const processStation = async (file,dublicateCheck) => {
       inValidRecords.push(analysedData.reason)
     }
   }
-  return inValidRecords
+
+  const response = {
+    'totalRecords': records.length,
+    'inValidRecords' : inValidRecords.length,
+    'addRecordeToDatabse': records.length - inValidRecords.length,
+    'dublicatedRecord': inValidRecords.filter(record => record == 'Dublicate Record').length
+  }
+  return response
 }
 
 module.exports = {

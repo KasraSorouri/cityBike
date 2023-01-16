@@ -5,7 +5,7 @@ const processTripFile = async (file) => {
   const records = []
   const parser = fs
     .createReadStream(file)
-    .pipe(parse({ delimiter: ',', from_line: 2, to_line: 1000 }))
+    .pipe(parse({ delimiter: ',', from_line: 2 }))
   for await(const record of parser) {
     records.push(record)
   }
