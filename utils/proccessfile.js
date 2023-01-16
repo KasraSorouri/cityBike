@@ -1,5 +1,5 @@
 const csvFileParser = require('../utils/csvFileParser')
-const dataAnalys = require('../utils/dataAnalys')
+const dataValidation = require('../utils/dataValidation')
 const Trip = require('../models/trip.js')
 const Station = require('../models/station')
 
@@ -7,7 +7,7 @@ const processTrip = async (file,dublicateCheck) => {
   const records = await csvFileParser.processTripFile(file)
   const inValidRecords = []
   for(const record of records) {
-    const analysedData = await dataAnalys.validateData(record,dublicateCheck)
+    const analysedData = await dataValidation.validateTripData(record,dublicateCheck)
     if (analysedData.validation) {
       const trip = new Trip (analysedData.rowData)
       await trip.save()
@@ -23,7 +23,7 @@ const processStation = async (file,dublicateCheck) => {
   const records = await csvFileParser.processStationFile(file)
   const inValidRecords = []
   for(const record of records) {
-    const analysedData = await dataAnalys.stationDubCheck(record,dublicateCheck)
+    const analysedData = await dataValidation.validateStationData(record,dublicateCheck)
     if (analysedData.validation) {
       const station = new Station(analysedData.rowData)
       await station.save()
