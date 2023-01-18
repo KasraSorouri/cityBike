@@ -29,4 +29,17 @@ stationRouter.get('/:sid', async (request, response) => {
   response.status(200).json(body)
 })
 
+stationRouter.get('/', async (request, response) => {
+
+  const stations  =  await Station.find({})
+  const body = stations.map(station => {
+    const name = station.nameFinnish
+    const id = station.stationId
+    const stationlist = {name, id}
+    return (stationlist)
+  })
+
+  response.status(200).json(body)
+})
+
 module.exports = stationRouter

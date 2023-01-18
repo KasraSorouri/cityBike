@@ -2,8 +2,8 @@ const Trip = require('../models/trip.js')
 const Station = require('../models/station')
 
 const statistic = async (sid) => {
-  const station = await Station.findById(sid)
-  const stationId = station.stationId
+  const stationId = sid
+  const station = await Station.findOne({stationId: stationId })
   console.log('bakend staion Id ->', stationId)
   try {
     const totalTripFrom = await Trip.find({ departureStationId: stationId }).count()
@@ -74,6 +74,7 @@ const statistic = async (sid) => {
     ]).limit(5)
   
     const body = {
+      'stationInfo':station,
       'totalTripFromStation': totalTripFrom,
       'totalTripToStation': totalTripTo,
       'avrageTripFromStation': avrageTripFrom,
