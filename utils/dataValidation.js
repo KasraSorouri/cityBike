@@ -43,6 +43,7 @@ const validateTripData = async(data, dublicateCheck) => {
 }
 
 const validateStationData = async (data, dublicateCheck) => {
+  console.log('validate station data ->', data )
   const rowData = {
     fid: data[0],
     stationId: data[1],

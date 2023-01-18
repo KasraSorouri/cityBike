@@ -16,7 +16,7 @@ const processStationFile = async (file) => {
   const records = []
   const parser = fs
     .createReadStream(file)
-    .pipe(parse({ delimiter: '\t', from_line: 2 }))
+    .pipe(parse({ delimiter: ',', from_line: 2 }))
   for await(const record of parser) {
     records.push(record)
   }
