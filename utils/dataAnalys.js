@@ -90,7 +90,21 @@ const statistic = async (sid) => {
   }
 }
 
+const filterParameter = async() => {
+  const parameter = await Trip.aggregate([
+    { $match: {}},
+    { $group: {
+          _id: null,
+          earliest: { $min: "$departure" },
+          latest: { $max: "$return" }
+      }
+    }
+  ])
+  return parameter[0]
+}
+
 
 module.exports = {
-  statistic
+  statistic,
+  filterParameter
 }

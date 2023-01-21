@@ -9,6 +9,7 @@ const tripRouter = require('./controllers/trips')
 const stationRouter = require('./controllers/stations')
 const fileRouter = require('./controllers/files')
 const testRouter = require('./controllers/testRouter')
+const parameterRouter = require('./controllers/parameters')
 
 const mongoose = require('mongoose').set('strictQuery',false)
 
@@ -29,6 +30,7 @@ app.use(middleware.requestLogger)
 app.use('/api/trips', tripRouter)
 app.use('/api/stations', stationRouter)
 app.use('/api/files', fileRouter)
+app.use('/api/parameter', parameterRouter)
 app.use('/test', testRouter)
 
 
