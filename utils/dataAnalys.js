@@ -3,9 +3,9 @@ const Station = require('../models/station')
 
 const statistic = async (sid) => {
   const stationId = sid
-  const station = await Station.findOne({stationId: stationId })
   console.log('bakend staion Id ->', stationId)
   try {
+    const station = await Station.findOne({stationId: stationId })
     const totalTripFrom = await Trip.find({ departureStationId: stationId }).count()
     const totalTripTo = await Trip.find({ returnStationId: stationId }).count()
     const avrageTripFrom = await Trip.aggregate([
@@ -83,10 +83,16 @@ const statistic = async (sid) => {
       'departureFrom': departureFrom,
       'destinationTo': destinationTo
     }
+    console.log('stattion ->',station)
 
+    if (!station) {
+      console.log('can not find the station!' )
+      return null
+    }
     return body
   } catch (e) {
-    console.log(e.message);
+    console.log('error ->',e.message)
+    return e.message
   }
 }
 
