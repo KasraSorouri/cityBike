@@ -1,24 +1,26 @@
-FID	ID	Nimi	Namn	Name	Osoite	Adress	Kaupunki	Stad	Operaattor	Kapasiteet	x	y
-198	747	Lepp‰vaaran uimahalli	Alberga simhall	Lepp‰vaaran uimahalli	Ver‰j‰pellonkatu 12	GrindÂkersgatan 12	Espoo	Esbo	CityBike Finland	18	24.804735	60.226379
-99	749	Vallikatu	Vallgatan	Vallikatu	Vallikatu 19	Vallgatan 19	Espoo	Esbo	CityBike Finland	24	24.813871	60.228463
-100	751	Vallipolku	VallgÂngen	Vallipolku	Vallikatu 12	Vallgatan 12	Espoo	Esbo	CityBike Finland	20	24.819614	60.227827
-101	753	Linnuntie	FÂgelv‰gen	Linnuntie	Linnuntie 2	FÂgelsv‰gen 2	Espoo	Esbo	CityBike Finland	24	24.813954	60.234401
-102	755	Kutsuntatie	UppbÂdsv‰gen	Kutsuntatie	Lintulaaksontie 2	FÂgeldalsv‰gen 2	Espoo	Esbo	CityBike Finland	16	24.824561	60.230453
-103	757	Painiitty	Paj‰ngen	Painiitty	Lotankatu 1	Lottagatan 1	Espoo	Esbo	CityBike Finland	12	24.831397	60.235089
-104	761	M‰kkyl‰n asema	M‰kkyl‰ station	M‰kkyl‰n asema	Perkkaantie 20	Bergansv‰gen 20	Espoo	Esbo	CityBike Finland	32	24.83939	60.220467
-105	763	Kalkkipellonm‰ki	KalkÂkersbacken	Kalkkipellonm‰ki	Turuntie 22	≈bov‰gen 22	Espoo	Esbo	CityBike Finland	24	24.833536	60.220551
-106	767	Ruutikatu	Krutgatan	Ruutikatu	Ruutikatu 10	Krugranden 10	Espoo	Esbo	CityBike Finland	10	24.820635	60.223377
-107	769	Tiurintie	Tiurisv‰gen	Tiurintie	Kurkijoentie 1	Kronoborgsv‰gen 1	Espoo	Esbo	CityBike Finland	12	24.814562	60.204951
-108	900	Orionintie	Orionv‰gen	Orionintie	Orionintie 3-5	Orionv‰gen 3-5	Espoo	Esbo	CityBike Finland	20	24.771826	60.180118
-109	901	O'Bike Station	O'Bike Station	O'Bike Station	Rauhalanpuisto 11	Rauhalaparken 11	Espoo	Esbo	CityBike Finland	20	24.742219	60.163412
-111	1	Kaivopuisto	Brunnsparken	Kaivopuisto	Meritori 1	Havstorget 1	 	 	 	30	24.9502114714031	60.155369615074
-112	2	Laivasillankatu	Skeppsbrogatan	Laivasillankatu	Laivasillankatu 14	Skeppsbrogatan 14	 	 	 	12	24.9565097715858	60.1609890692806
-113	3	Kapteeninpuistikko	Kaptensskv‰ren	Kapteeninpuistikko	Tehtaankatu 13	Fabriksgatan 13	 	 	 	16	24.9450181631667	60.1581769029949
-114	4	Viiskulma	Femkanten	Viiskulma	Fredrikinkatu 19	Fredriksgatan  19	 	 	 	14	24.9417758006418	60.1609858921764
-115	5	Sep‰nkatu	Smedsgatan	Sep‰nkatu	Tehtaankatu 25	Fabriksgatan 25	 	 	 	32	24.9362853002102	60.157948291819
-116	6	Hietalahdentori	Sandvikens torg	Hietalahdentori	Hietalahdenkatu 2	Sandviksgatan 2	 	 	 	24	24.9296476311878	60.1622283898112
-117	7	Designmuseo	Designmuseet	Design Museum	Korkeavuorenkatu 23	Hˆgbergsgatan 23	 	 	 	14	24.9459599998806	60.16310319166
-113	3	Kapteeninpuistikko	Kaptensskv‰ren	Kapteeninpuistikko	Tehtaankatu 13	Fabriksgatan 13	 	 	 	16	24.9450181631667	60.1581769029949
-118	8	Vanha kirkkopuisto	Gamla kyrkoparken	Vanha kirkkopuisto	Annankatu 16	Annegatan 16	 	 	 	24	24.9391145483706	60.1653538465664
-119	9	Erottajan aukio	Skillnadsplatsen	Erottajan aukio	Etel‰esplanadi 22	Sˆdra esplanaden 22	 	 	 	44	24.9441887601673	60.1668948711694
-120	10	Kasarmitori	Kaserntorget	Kasarmitori	Fabianinkatu 13	Fabiansgatan 13	 	 	 	28	24.9494728793816	60.165017172741
+ÔªøFID,ID,Nimi,Namn,Name,Osoite,Adress,Kaupunki,Stad,Operaattor,Kapasiteet,x,y
+1,501,Hanasaari,Hanaholmen,Hanasaari,Hanasaarenranta 1,Hanaholmsstranden 1,Espoo,Esbo,CityBike Finland,10,24.840319,60.16582
+2,503,Keilalahti,K√§gelviken,Keilalahti,Keilalahdentie 2,K√§gelviksv√§gen 2,Espoo,Esbo,CityBike Finland,28,24.827467,60.171524
+3,505,Westendinasema,Westendstationen,Westendinasema,Westendintie 1,Westendv√§gen 1,Espoo,Esbo,CityBike Finland,16,24.805758,60.168266
+4,507,Golfpolku,Golfstigen,Golfpolku,Golfpolku 3,Golfstigen 3,Espoo,Esbo,CityBike Finland,16,24.796136,60.168143
+5,509,Revontulentie,Norrskensv√§gen,Revontulentie,Revontulentie 10,Norrskensv√§gen 10,Espoo,Esbo,CityBike Finland,30,24.802938,60.171551
+6,511,Sateentie,Regnv√§gen,Sateentie,Sateentie 2,Regnv√§gen 2,Espoo,Esbo,CityBike Finland,18,24.810688,60.173424
+7,513,Hakalehto,Hagliden,Hakalehto,Merituulentie 18,Havsvindsv√§gen 18,Espoo,Esbo,CityBike Finland,24,24.79139,60.173567
+8,515,Oravannahkatori,Gr√•skinnstorget,Oravannahkatori,Oravannahkatori 1,Gr√•skinnstorget 1,Espoo,Esbo,CityBike Finland,16,24.792559,60.175769
+9,517,L√§nsituuli,V√§stanvinden,L√§nsituuli,L√§nsituulenkuja 3,V√§stanvindsgr√§nden 3,Espoo,Esbo,CityBike Finland,24,24.802049,60.175358
+10,518,Tuulim√§ki,V√§derbacken,Tuulim√§ki,It√§tuulenkuja 11,√ñstanvindsgr√§nden 11,Espoo,Esbo,CityBike Finland,18,24.806051,60.174144
+11,519,Tapionaukio,Tapioplatsen,Tapionaukio,Tapionaukio 9,Tapioplatsen 9,Espoo,Esbo,CityBike Finland,26,24.805825,60.176168
+12,521,Kulttuuriaukio,Kulturplatsen,Kulttuuriaukio,Kulttuuriaukio 2,Kulturplatsen 2,Espoo,Esbo,CityBike Finland,30,24.803942,60.177588
+13,523,Ahertajantie,Flitarv√§gen,Ahertajantie,Ahertajantie 1,Flitargr√§nden 1,Espoo,Esbo,CityBike Finland,20,24.797984,60.17875
+14,525,M√§ntyviita,Tallbysket,M√§ntyviita,M√§ntyviita 2,Tallbysket 2,Espoo,Esbo,CityBike Finland,10,24.810974,60.178702
+15,527,Otsolahti,Bj√∂rnviken,Otsolahti,Otsolahdentie 18,Bj√∂rnviksv√§gen 18,Espoo,Esbo,CityBike Finland,18,24.817423,60.178655
+16,529,Keilaniemi (M),K√§geludden (M),Keilaniemi (M),Keilaniementie 4,K√§geluddsv√§gen 4,Espoo,Esbo,CityBike Finland,40,24.82895,60.175233
+17,531,Keilaranta,K√§gelstranden,Keilaranta,Keilaranta 13,K√§gelstranden 13,Espoo,Esbo,CityBike Finland,24,24.835132,60.178762
+18,532,Betonimies,Betongblandaren,Betonimies,Betonimiehenkuja 1,Betongblandargr√§nden 1,Espoo,Esbo,CityBike Finland,16,24.831804,60.180027
+18,532,Betonimies,Betongblandaren,Betonimies,Betonimiehenkuja 1,Betongblandargr√§nden 1,Espoo,Esbo,CityBike Finland,16,24.831804,60.180027
+19,533,Tekniikantie,Teknikv√§gen,Tekniikantie,Tekniikantie 3,Teknikv√§gen 3,Espoo,Esbo,CityBike Finland,18,24.824747,60.180806
+20,537,Innopoli,Innopoli,Innopoli,Tekniikantie 14,Teknikv√§gen 14,Espoo,Esbo,CityBike Finland,20,24.81422,60.185096
+21,538,Hagalundinpuisto,Hagalundinpuisto,Hagalundsparken,Tekniikantie 15,Teknikv√§gen 15,Espoo,Esbo,CityBike Finland,14,24.817403,60.18363
+22,539,"Aalto-yliopisto (M), Tietot","Aalto-universitetet (M),","Aalto University (M), Tietotie",Tietotie 4,Datav√§gen 4,Espoo,Esbo,CityBike Finland,20,24.820099,60.184987
+23,541,"Aalto-yliopisto (M), Korkea","Aalto-universitetet (M),","Aalto University (M), Korkeakoulua",Otaniementie 10,Otn√§sv√§gen 10,Espoo,Esbo,CityBike Finland,42,24.826671,60.184312
+24,543,Otaranta,Oststranden,Otaranta,Otaranta 6,Otstranden 6,Espoo,Esbo,CityBike Finland,22,24.837133,60.18483

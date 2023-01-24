@@ -22,7 +22,7 @@ describe('test file handeling', () => {
 
   test('Only valid trips add to the database', async() => {
     const trips = await Trip.find({})
-    expect(trips).toHaveLength(8)
+    expect(trips).toHaveLength(26)
   })
 
   test('Dublicate trips would not be added to the database', async() => {
@@ -34,7 +34,7 @@ describe('test file handeling', () => {
     .attach('csvFile',`${__dirname}/testTrip.csv`)
     console.log ('Data Added')
     const trips = await Trip.find({})
-    expect(trips).toHaveLength(7)
+    expect(trips).toHaveLength(25)
   })
 
   test('Station file with correct format is converted to trip model', async() => {
@@ -50,7 +50,7 @@ describe('test file handeling', () => {
 
   test('Only valid stations add to the database', async() => {
     const stations = await Station.find({})
-    expect(stations).toHaveLength(23)
+    expect(stations).toHaveLength(25)
   })
 
   test('Dublicate staions would not be added to the database', async() => {
@@ -62,7 +62,7 @@ describe('test file handeling', () => {
     .attach('csvFile',`${__dirname}/testStation.csv`)
     console.log ('Data Added')
     const stations = await Station.find({})
-    expect(stations).toHaveLength(22)
+    expect(stations).toHaveLength(24)
   })
 
 })
