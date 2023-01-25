@@ -15,20 +15,20 @@ describe('Receive trips', () => {
   
     await api
     .post('/api/files/trip')
-    .field("dublicateCheck", false)
+    .field("duplicateCheck", false)
     .attach('csvFile',`${__dirname}/testTrip.csv`)
 
     console.log ('Data Added')
   }
 
-  test('trips are returend as json', async () => {
+  test('trips are returned as json', async () => {
     await api
         .get('/api/trips/0/1')
         .expect(200)
         .expect('content-type', /application\/json/)
   })
  
-  test('there are 25 trips', async () => {
+  test('Return all trips', async () => {
     const response = await api.get('/api/trips/0/100')
     expect(response.body.totalTrips).toBe(25)
     expect(response.body.trips).toHaveLength(25)
@@ -42,7 +42,7 @@ describe('Receive trips', () => {
     expect(response.body.trips[9].returnStationId).toBe('145')
   })
 
-  test('Filtertest', async () => {
+  test('Test filters', async () => {
     const filter = 'originStation=004&destinationStation=null&durationFrom=5&durationTo=null&distanceFrom=null&distanceTo=2&start=2021-05-09T21%3A00%3A11.000Z&end=null'
     const response = await api.get(`/api/trips/0/10?${filter}`)
     expect(response.body.trips).toHaveLength(1)
@@ -58,19 +58,19 @@ describe('Receive Stations', () => {
 
     await api
     .post('/api/files/station')
-    .field("dublicateCheck", true)
+    .field("duplicateCheck", true)
     .attach('csvFile',`${__dirname}/testStation.csv`)
 
     console.log ('Data Added')
   }
-  test('Stations are returend as json', async () => {
+  test('Stations are returned as json', async () => {
     await api
         .get('/api/stations')
         .expect(200)
         .expect('content-type', /application\/json/)
   })
  
-  test('There are 25 stations', async () => {
+  test('Return all stations', async () => {
     const response = await api.get('/api/stations')
     expect(response.body).toHaveLength(24)
   })

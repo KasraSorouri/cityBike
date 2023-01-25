@@ -14,14 +14,14 @@ var storage = multer.diskStorage({
 const upload = multer({ storage: storage })
 
 fileRouter.post('/trip', upload.single('csvFile'), async (request, response) => {
-  const dublicateCheck = request.body.dublicateCheck
-  const onSuccess = await processFile.processTrip(`${request.file.path}`,dublicateCheck)
+  const duplicateCheck = request.body.duplicateCheck
+  const onSuccess = await processFile.processTrip(`${request.file.path}`,duplicateCheck)
   response.status(200).json(onSuccess)
 })
 
 fileRouter.post('/station', upload.single('csvFile'), async (request, response) => {
-  const dublicateCheck = request.body.dublicateCheck
-  const onSuccess = await processFile.processStation(`${request.file.path}`,dublicateCheck)
+  const duplicateCheck = request.body.duplicateCheck
+  const onSuccess = await processFile.processStation(`${request.file.path}`,duplicateCheck)
   response.status(200).json(onSuccess)
 })
   

@@ -14,7 +14,7 @@ describe('test file handeling', () => {
     console.log('Cleared !')
     await api
     .post('/api/files/trip')
-    .field("dublicateCheck", false)
+    .field("duplicateCheck", false)
     .attach('csvFile',`${__dirname}/testTrip.csv`)
     .expect(200)
     console.log ('Data Added')
@@ -25,12 +25,12 @@ describe('test file handeling', () => {
     expect(trips).toHaveLength(26)
   })
 
-  test('Dublicate trips would not be added to the database', async() => {
+  test('Duplicate trips would not be added to the database', async() => {
     await Trip.deleteMany({})
     console.log('Cleared !')
     await api
     .post('/api/files/trip')
-    .field("dublicateCheck", true)
+    .field("duplicateCheck", true)
     .attach('csvFile',`${__dirname}/testTrip.csv`)
     console.log ('Data Added')
     const trips = await Trip.find({})
@@ -42,7 +42,7 @@ describe('test file handeling', () => {
     console.log('Cleared !')
     await api
     .post('/api/files/station')
-    .field("dublicateCheck", false)
+    .field("duplicateCheck", false)
     .attach('csvFile',`${__dirname}/testStation.csv`)
     .expect(200)
     console.log ('Data Added')
@@ -53,12 +53,12 @@ describe('test file handeling', () => {
     expect(stations).toHaveLength(25)
   })
 
-  test('Dublicate staions would not be added to the database', async() => {
+  test('Duplicate stations would not be added to the database', async() => {
     await Station.deleteMany({})
     console.log('Cleared !')
     await api
     .post('/api/files/station')
-    .field("dublicateCheck", true)
+    .field("duplicateCheck", true)
     .attach('csvFile',`${__dirname}/testStation.csv`)
     console.log ('Data Added')
     const stations = await Station.find({})
