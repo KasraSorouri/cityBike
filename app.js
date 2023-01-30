@@ -8,7 +8,6 @@ const middleware = require('./utils/middleware')
 const tripRouter = require('./controllers/trips')
 const stationRouter = require('./controllers/stations')
 const fileRouter = require('./controllers/files')
-const testRouter = require('./controllers/testRouter')
 const parameterRouter = require('./controllers/parameters')
 
 const mongoose = require('mongoose').set('strictQuery',false)
@@ -31,7 +30,12 @@ app.use('/api/trips', tripRouter)
 app.use('/api/stations', stationRouter)
 app.use('/api/files', fileRouter)
 app.use('/api/parameter', parameterRouter)
-app.use('/test', testRouter)
+
+if (process.env.NODE_ENV === 'test') {
+  const testRouter = require('./controllers/testRouter')
+  app.use('/test', testRouter)
+
+}
 
 app.use(middleware.unknownEndpoint)
 app.use(middleware.errorHandler)
