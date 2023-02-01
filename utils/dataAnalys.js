@@ -1,15 +1,14 @@
 const Trip = require('../models/trip.js')
 const Station = require('../models/station')
 
-const statistic = async (sid) => {
+const statistic = async (sid, searchParameter) => {
   const stationId = sid
-  console.log('bakend staion Id ->', stationId)
   try {
-    const station = await Station.findOne({stationId: stationId })
-    const totalTripFrom = await Trip.find({ departureStationId: stationId }).count()
-    const totalTripTo = await Trip.find({ returnStationId: stationId }).count()
+    const station = await Station.findOne({ stationId: stationId })
+    const totalTripFrom = await Trip.find({ $and: [{ departureStationId: stationId }, { ...searchParameter }]}).count()
+    const totalTripTo = await Trip.find({ $and: [{ returnStationId: stationId }, { ...searchParameter }]}).count()
     const avrageTripFrom = await Trip.aggregate([
-      { $match: { departureStationId: stationId } },
+      { $match: { $and: [{ departureStationId: stationId }, { ...searchParameter }]} },
       { $group: {
           _id: null,
           distance: {$avg: "$distance"} 
@@ -17,7 +16,7 @@ const statistic = async (sid) => {
       }
     ])
     const avrageTripTo = await Trip.aggregate([
-      { $match: { returnStationId: stationId } },
+      { $match:  {$and: [{ returnStationId: stationId }, { ...searchParameter }]} },
       { $group: {
           _id: null,
           distance: { $avg: "$distance" }
@@ -26,9 +25,9 @@ const statistic = async (sid) => {
     ])
 
     const roundTrip = await Trip.aggregate([
-      { $match: { departureStationId: stationId , returnStationId: stationId }},
+      { $match: { $and: [{ departureStationId: stationId , returnStationId: stationId }, { ...searchParameter }]}},
       { $group: {
-          _id: "$returnStationName",
+          _id: null,
           count: { $sum: 1 },
           duration: { $avg: "$duration" },
           minDuration: { $min: "$duration" },
@@ -37,12 +36,11 @@ const statistic = async (sid) => {
           minDistance: { $min: "$distance" },
           maxDistance: { $max: "$distance" },
         }
-      },
-      { $sort: { count: -1 } }
-    ]).limit(5)
+      }
+    ])
 
     const departureFrom = await Trip.aggregate([
-      { $match: { departureStationId: stationId }},
+      { $match: { $and: [{ departureStationId: stationId }, { ...searchParameter }]}},
       { $group: {
           _id: "$returnStationName",
           count: { $sum: 1 },
@@ -58,7 +56,7 @@ const statistic = async (sid) => {
     ]).limit(5)
 
     const destinationTo = await Trip.aggregate([
-      { $match: { returnStationId: stationId }},
+      { $match: { $and: [{ returnStationId: stationId }, { ...searchParameter }]}},
       { $group: {
           _id: "$departureStationName",
           count: { $sum: 1 },
@@ -74,16 +72,14 @@ const statistic = async (sid) => {
     ]).limit(5)
   
     const body = {
-      'stationInfo':station,
       'totalTripFromStation': totalTripFrom,
       'totalTripToStation': totalTripTo,
-      'avrageTripFromStation': avrageTripFrom,
-      'avrageTripToStation': avrageTripTo,
+      'avrageTripFromStation': avrageTripFrom[0] ? avrageTripFrom[0].distance : null ,
+      'avrageTripToStation': avrageTripTo[0] ? avrageTripTo[0].distance : null,
       'returnTrip': roundTrip,
       'departureFrom': departureFrom,
       'destinationTo': destinationTo
     }
-    console.log('stattion ->',station)
 
     if (!station) {
       console.log('can not find the station!' )
