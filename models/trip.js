@@ -44,5 +44,5 @@ tripSchema.set('toJSON', {
     returnedObject.duration = returnedObject.duration / 60
   }
 })
-  
+
 module.exports = mongoose.model('Trip', tripSchema)

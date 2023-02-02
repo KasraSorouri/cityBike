@@ -7,7 +7,6 @@ const path = require('path')
 testRouter.post('/reset', async (request, response) => {
   await Trip.deleteMany({})
   await Station.deleteMany({})
-
   response.status(204).end()
 })
 

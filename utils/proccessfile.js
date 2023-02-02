@@ -20,14 +20,14 @@ const processTrip = async (file,dublicateCheck) => {
     'totalRecords': records.length,
     'inValidRecords' : inValidRecords.length,
     'addRecordeToDatabse': records.length - inValidRecords.length,
-    'shortTrip': inValidRecords.filter(record => record == 'short trip').length,
-    'quickTrip': inValidRecords.filter(record => record == 'quick trip').length,
-    'dublicatedRecord': inValidRecords.filter(record => record == 'Dublicate Record').length
+    'shortTrip': inValidRecords.filter(record => record === 'short trip').length,
+    'quickTrip': inValidRecords.filter(record => record === 'quick trip').length,
+    'dublicatedRecord': inValidRecords.filter(record => record === 'Dublicate Record').length
   }
   return response
 }
 
-const processStation = async (file,dublicateCheck) => { 
+const processStation = async (file,dublicateCheck) => {
   const records = await csvFileParser.processStationFile(file)
   const inValidRecords = []
   for(const record of records) {
@@ -45,7 +45,7 @@ const processStation = async (file,dublicateCheck) => {
     'totalRecords': records.length,
     'inValidRecords' : inValidRecords.length,
     'addRecordeToDatabse': records.length - inValidRecords.length,
-    'dublicatedRecord': inValidRecords.filter(record => record == 'Dublicate Record').length
+    'dublicatedRecord': inValidRecords.filter(record => record === 'Dublicate Record').length
   }
   return response
 }

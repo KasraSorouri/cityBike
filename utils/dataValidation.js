@@ -31,14 +31,14 @@ const validateTripData = async(data, dublicateCheck) => {
       distance: rowData.distance,
       duration: rowData.duration
     })
-  
+
     if (isDuble) {
       return { 'validation': false, 'reason': 'Dublicate Record' }
     } else {
       return { 'validation': true, rowData }
     }
   } catch (e) {
-    console.log(e.message);
+    console.log(e.message)
   }
 }
 
@@ -64,15 +64,15 @@ const validateStationData = async (data, dublicateCheck) => {
     return { 'validation': true, rowData }
   }
   try {
-  const isDuble = await Station.exists({
-                        stationId: rowData.stationId
-                      })
-  if (isDuble) {
-    return { 'validation': false, 'reason': 'Dublicate Record'}
-  }
-  return { 'validation': true, rowData }
+    const isDuble = await Station.exists({
+      stationId: rowData.stationId
+    })
+    if (isDuble) {
+      return { 'validation': false, 'reason': 'Dublicate Record' }
+    }
+    return { 'validation': true, rowData }
   } catch (e) {
-    console.log(e.message);
+    console.log(e.message)
   }
 }
 

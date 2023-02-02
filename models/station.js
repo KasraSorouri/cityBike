@@ -58,5 +58,5 @@ stationSchema.set('toJSON', {
     delete returnedObject.__v
   }
 })
-  
+
 module.exports = mongoose.model('Station', stationSchema)

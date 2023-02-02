@@ -1,4 +1,4 @@
-const {parse} = require('csv-parse')
+const { parse } = require('csv-parse')
 const fs = require('fs')
 
 const processTripFile = async (file) => {
@@ -21,7 +21,7 @@ const processStationFile = async (file) => {
     records.push(record)
   }
   return records
-} 
+}
 
 module.exports = {
   processTripFile,

@@ -1,28 +1,19 @@
 /* eslint-env node */
 module.exports = {
   'env': {
-    'browser': true,
-    'es6': true,
-    'jest/globals': true,
+    'commonjs': true,
+    'es2021': true,
+    'node': true,
+    'jest': true
   },
-  'extends': [ 
-    'eslint:recommended',
-    'plugin:react/recommended'
-  ],
+  'extends': 'eslint:recommended',
   'parserOptions': {
-    'ecmaFeatures': {
-      'jsx': true
-    },
-    'ecmaVersion': 2018,
-    'sourceType': 'module'
+    'ecmaVersion': 'latest'
   },
-  'plugins': [
-    'jest', 
-  ],
   'rules': {
     'indent': [
       'error',
-      2  
+      2
     ],
     'linebreak-style': [
       'error',

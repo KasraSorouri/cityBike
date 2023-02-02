@@ -24,6 +24,6 @@ fileRouter.post('/station', upload.single('csvFile'), async (request, response) 
   const onSuccess = await processFile.processStation(`${request.file.path}`,duplicateCheck)
   response.status(200).json(onSuccess)
 })
-  
+
 
 module.exports = fileRouter

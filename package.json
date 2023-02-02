@@ -7,7 +7,7 @@
     "start": "NODE_ENV=production node index.js",
     "dev": "NODE_ENV=development nodemon index.js",
     "test": "NODE_ENV=test jest --verbose --runInBand --forceExit",
-    "lint": "eslint .",
+    "lint": "eslint . --fix",
     "start:test": "NODE_ENV=test node index.js"
   },
   "author": "Kasra Sorouri",
@@ -28,6 +28,7 @@
     "supertest": "^6.3.3"
   },
   "jest": {
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "globalTeardown": ".test/teardown.js"
   }
 }

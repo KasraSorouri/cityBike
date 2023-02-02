@@ -1,6 +1,6 @@
 Departure,Return,Departure station id,Departure station name,Return station id,Return station name,Covered distance (m),Duration (sec.)
 2021-05-31T23:57:25,2021-06-01T00:05:46,094,Laajalahden aukio,100,Teljäntie,2043,500
-2021-05-31T23:56:59,2021-06-01T00:07:14,082,Töölöntulli,511,Sateentie,1870,611
+2021-04-28T22:56:59,2021-04-28T23:07:14,082,Töölöntulli,511,Sateentie,1870,611
 2021-05-31T23:56:44,2021-06-01T00:03:26,123,Näkinsilta,121,Vilhonvuorenkatu,1025,399
 2021-05-31T23:56:23,2021-06-01T00:29:58,004,Viiskulma,065,Hernesaarenranta,4318,2009
 2021-05-31T23:56:11,2021-06-01T00:02:02,004,Viiskulma,133,Paavalinpuisto,1400,350
@@ -18,10 +18,10 @@ Departure,Return,Departure station id,Departure station name,Return station id,R
 2021-05-31T23:48:53,2021-06-01T00:03:49,030,Itämerentori,050,Melkonkuja,2656,892
 2021-05-31T23:48:44,2021-05-31T23:56:06,235,Katariina Saksilaisen katu,239,Viikin tiedepuisto,2107,437
 2021-05-31T23:47:49,2021-05-31T23:51:11,727,Ratsutori,713,Upseerinkatu,549,198
-2021-05-31T23:46:14,2021-05-31T23:55:58,137,Arabian kauppakeskus,044,Sörnäinen (M),1970,582
-2021-05-31T23:46:13,2021-05-31T23:55:22,137,Arabian kauppakeskus,118,Fleminginkatu,1952,544
+2021-05-16T23:46:14,2021-05-16T23:55:58,137,Arabian kauppakeskus,044,Sörnäinen (M),1970,582
+2021-05-16T23:46:13,2021-05-16T23:55:22,137,Arabian kauppakeskus,118,Fleminginkatu,1952,544
 2021-05-31T23:45:26,2021-06-01T00:12:04,264,Eränkävijäntori,267,Roihupelto,3134,1597
-2021-05-31T23:45:15,2021-05-31T23:51:54,049,Annankatu,162,Leppäsuonaukio,1186,394
+2021-05-14T23:45:15,2021-05-14T23:51:54,049,Annankatu,162,Leppäsuonaukio,1186,394
 2021-05-31T23:45:09,2021-05-31T23:49:23,063,Jätkäsaarenlaituri,068,Albertinkatu,1841,249
-2021-05-31T23:44:27,2021-05-31T23:49:46,727,Ratsutori,711,Kirjurinkuja,974,314
+2021-04-28T23:44:27,2021-04-28T23:49:46,727,Ratsutori,711,Kirjurinkuja,974,314
 2021-05-31T23:43:10,2021-05-31T23:47:44,625,Suomenlahdentie,611,Matinkartanontie,1064,273
