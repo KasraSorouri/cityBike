@@ -1,7 +1,7 @@
 const Trip = require('../models/trip.js')
 const Station = require('../models/station')
 
-const validateTripData = async(data, dublicateCheck) => {
+const validateTripData = async(data, duplicateCheck) => {
   let rowData = {
     departure: data[0],
     return: data[1],
@@ -19,7 +19,7 @@ const validateTripData = async(data, dublicateCheck) => {
     return { 'validation': false, 'reason': 'quick trip', rowData }
   }
 
-  if (dublicateCheck === 'false' ) {
+  if (duplicateCheck === 'false' ) {
     return { 'validation': true, rowData }
   }
   try {
@@ -33,7 +33,7 @@ const validateTripData = async(data, dublicateCheck) => {
     })
 
     if (isDuble) {
-      return { 'validation': false, 'reason': 'Dublicate Record' }
+      return { 'validation': false, 'reason': 'Duplicate Record' }
     } else {
       return { 'validation': true, rowData }
     }
@@ -42,7 +42,7 @@ const validateTripData = async(data, dublicateCheck) => {
   }
 }
 
-const validateStationData = async (data, dublicateCheck) => {
+const validateStationData = async (data, duplicateCheck) => {
   const rowData = {
     fid: data[0],
     stationId: data[1],
@@ -60,7 +60,7 @@ const validateStationData = async (data, dublicateCheck) => {
       latitude: data[12]
     }
   }
-  if (dublicateCheck === 'false' ) {
+  if (duplicateCheck === 'false' ) {
     return { 'validation': true, rowData }
   }
   try {
@@ -68,7 +68,7 @@ const validateStationData = async (data, dublicateCheck) => {
       stationId: rowData.stationId
     })
     if (isDuble) {
-      return { 'validation': false, 'reason': 'Dublicate Record' }
+      return { 'validation': false, 'reason': 'Duplicate Record' }
     }
     return { 'validation': true, rowData }
   } catch (e) {
