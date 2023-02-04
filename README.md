@@ -1,7 +1,8 @@
 # CityBike App
 About
 This is a basic app for showing bike trips and some statistics about bike stations. It was done based on a pre-assignment challenge from Solita, and Solita supplied the journey and station data.
-I made the decision to use NodeJS and Express for the backend due to the ease of the calculations and the vast amount of records and data and ReactJS for the frontend. Additionally, I think MongoDB is a great choice for a database because in reality, the information for the journeys and stations for this app is not related to each other.
+I made the decision to use NodeJS and Express for the backend due to the ease of the calculations and the vast amount of records and data and ReactJS for the frontend. 
+Additionally, I think MongoDB is a great choice for a database because in reality, the information for the journeys and stations for this app is not related to each other.
 
 # Backend
 As previously noted, the backend is built on NodeJS, Express, and MongoDB, with the Mongoose module.
@@ -9,20 +10,24 @@ The CSV files is obtained and read by the backend. Verify the validity of the re
 The station's recordings are simply checked for duplication, which is optional but strongly advised.
 
 ## Prerequisite 
-You need to have Node 18.12.1 and npm installed on your machine in order to execute the backend.
-The versions which been mentioned above are based on the one I have on my personal computer.
+If you want to run the backend server locally, you must have Node 18.12.1 and npm installed on your machine. The versions mentioned above are based on the version I have on my computer.<br/>
+You can also use the cloud backend server with the following address:
+```
+https://city-bike-ynfd.onrender.com/
+```
+Which is available until the end of February 2023.
+
 ##### Database	
-You also require a MongoDB database; I used MongoDB 6.0.3 locally installed as the database, though Claude platforms are another alternative.  You could configure the connections URI and authentication for the database in the config.js file.
+If you wnat to run the server locally, You also require a MongoDB database as well, though Claude platforms are another alternative. You could configure the connections URI and authentication for the database in the ./utils/config.js file.
 
 ## Run
 To run the server in production mode, you can use:
 ```
 > npm start 
 ```
-Servers run by default on port 3005. The config.js file located in the "./utils/" directory allows for changing the port.
-
+The server runs on port 3005 by default. The port can be changed by editing the ./utils/config.js file.
 ### Uploading Trips data.
-It is possible to upload trips using a CSV file with a "," separator.
+if you run the server locally, It is possible to upload trips using a CSV file with a "," separator.
 CSV data should follow the format shown below. The first row was also ignored by the program and treated as a headline.
 ```
 Departure,Return,Departure station id,Departure station name,Return station id,Return station name,Covered distance (m),Duration (sec.)
@@ -142,9 +147,9 @@ To run the test use:
 ##### Test 2. rest-api
   **Receive trips**     
 	✓ trips are returned as json      
-	✓ Return All Trips 
-    ✓ Pagination test     
-		✓ Test Filter  					
+	✓ Return All Trips 	<br/>
+	✓ Pagination test     
+	✓ Test Filter  					
     
 **Receive Stations**  
 ✓ Stations are returned as json    
