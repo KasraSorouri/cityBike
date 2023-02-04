@@ -31,7 +31,6 @@
     "supertest": "^6.3.3"
   },
   "jest": {
-    "testEnvironment": "node",
-    "globalTeardown": ".test/teardown.js"
+    "testEnvironment": "node"
   }
 }

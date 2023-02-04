@@ -38,8 +38,8 @@ describe('Receive trips', () => {
   test('Pagination test', async () => {
     const response = await api.get('/api/trips/0/10')
     expect(response.body.trips).toHaveLength(10)
-    expect(response.body.trips[9].departureStationId).toBe('116')
-    expect(response.body.trips[9].returnStationId).toBe('145')
+    expect(response.body.trips[9].departureStationId).toBe('034')
+    expect(response.body.trips[9].returnStationId).toBe('511')
   })
 
   test('Test filters', async () => {
